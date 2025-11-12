@@ -1,5 +1,54 @@
 #include "header.h"
 
+void add_contact(int &number, PhoneBook &pb)
+{
+	std::string ptr;
+
+	start:
+		std::cout<<"Firstname: ";
+		std::cin>>ptr;
+		if(std::cin.eof() || ptr.empty())
+			goto start;
+	pb.contacts[number].setFirstName(ptr);
+	std::cout<<"LastName: ";
+	std::cin>>ptr;
+	pb.contacts[number].setLastName(ptr);
+	std::cout<<"Nickname: ";
+	std::cin>>ptr;
+	pb.contacts[number].setNickname(ptr);
+	std::cout<<"PhoneNumber: ";
+	std::cin>>ptr;
+	pb.contacts[number].setPhoneNumber(ptr);
+	std::cout<<"DarkestSecret: ";
+	std::cin>>ptr;
+	pb.contacts[number].setDarkestSecret(ptr);
+}
+
+void print_contact(int &i, PhoneBook &pb)
+{
+	std::string ptr;
+
+	std::cout<<"|";
+	std::cout << std::right << std::setw(10)<< i;
+	std::cout<<"|";
+	ptr = pb.contacts[i].getFirstName();
+	if (ptr.length() > 10)
+		ptr = ptr.substr(0, 9) + ".";
+	std::cout << std::right << std::setw(10)<< ptr;
+	std::cout<<"|";
+	ptr = pb.contacts[i].getLastName();
+	if (ptr.length() > 10)
+		ptr = ptr.substr(0, 9) + ".";
+	std::cout << std::right << std::setw(10)<< ptr;
+	std::cout<<"|";
+	ptr = pb.contacts[i].getNickname();
+	if (ptr.length() > 10)
+		ptr = ptr.substr(0, 9) + ".";
+	std::cout << std::right << std::setw(10)<< ptr;
+	std::cout<<"|";
+	std::cout<<"\n";
+}
+
 int main()
 {
 	std::string input;
@@ -16,49 +65,15 @@ int main()
 		{
 			if (number == 8)
 				number = 0;
-			std::cout<<"Firstname: ";
-			std::cin>>ptr;
-			pb.contacts[number].setFirstName(ptr);
-			std::cout<<"LastName: ";
-			std::cin>>ptr;
-			pb.contacts[number].setLastName(ptr);
-			std::cout<<"Nickname: ";
-			std::cin>>ptr;
-			pb.contacts[number].setNickname(ptr);
-			std::cout<<"PhoneNumber: ";
-			std::cin>>ptr;
-			pb.contacts[number].setPhoneNumber(ptr);
-			std::cout<<"DarkestSecret: ";
-			std::cin>>ptr;
-			pb.contacts[number].setDarkestSecret(ptr);
+			add_contact(number, pb);
 			number++;
 		}
 		else if (input == "SEARCH")
 		{
-			int i;
-
-			i = 0;
+			int i = 0;
 			while(i < number)
 			{
-				std::cout<<"|";
-				std::cout << std::right << std::setw(10)<< i;
-				std::cout<<"|";
-				ptr = pb.contacts[i].getFirstName();
-				if (ptr.length() > 10)
-					ptr = ptr.substr(0, 9) + ".";
-				std::cout << std::right << std::setw(10)<< ptr;
-				std::cout<<"|";
-				ptr = pb.contacts[i].getLastName();
-				if (ptr.length() > 10)
-					ptr = ptr.substr(0, 9) + ".";
-				std::cout << std::right << std::setw(10)<< ptr;
-				std::cout<<"|";
-				ptr = pb.contacts[i].getNickname();
-				if (ptr.length() > 10)
-					ptr = ptr.substr(0, 9) + ".";
-				std::cout << std::right << std::setw(10)<< ptr;
-				std::cout<<"|";
-				std::cout<<"\n";
+				print_contact(i, pb);
 				i++;
 			}
 			std::cout<<"Enter index: ";
