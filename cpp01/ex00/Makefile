@@ -1,9 +1,9 @@
-NAME = phonebook
+NAME = brainz
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp Zombie.cpp zombieHorde.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
