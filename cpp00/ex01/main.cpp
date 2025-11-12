@@ -4,23 +4,65 @@ void add_contact(int &number, PhoneBook &pb)
 {
 	std::string ptr;
 
-	start:
+	first:
 		std::cout<<"Firstname: ";
-		std::cin>>ptr;
-		if(std::cin.eof() || ptr.empty())
-			goto start;
+		std::getline(std::cin, ptr);
+		if(ptr.empty())
+		{
+			if (std::cin.eof())
+				std::cout<<"\n";
+			freopen("/dev/tty", "r", stdin);
+			std::cin.clear();
+			goto first;
+		}
 	pb.contacts[number].setFirstName(ptr);
-	std::cout<<"LastName: ";
-	std::cin>>ptr;
+	second:
+		std::cout<<"Last name: ";
+		std::getline(std::cin, ptr);
+		if(ptr.empty())
+		{
+			if (std::cin.eof())
+				std::cout<<"\n";
+			freopen("/dev/tty", "r", stdin);
+			std::cin.clear();
+			goto second;
+		}
 	pb.contacts[number].setLastName(ptr);
-	std::cout<<"Nickname: ";
-	std::cin>>ptr;
+	third:
+		std::cout<<"Nickname: ";
+		std::getline(std::cin, ptr);
+		if(ptr.empty())
+		{
+			if (std::cin.eof())
+				std::cout<<"\n";
+			freopen("/dev/tty", "r", stdin);
+			std::cin.clear();
+			goto third;
+		}
 	pb.contacts[number].setNickname(ptr);
-	std::cout<<"PhoneNumber: ";
-	std::cin>>ptr;
+	fourth:
+		std::cout<<"Phone number: ";
+		std::getline(std::cin, ptr);
+		if(ptr.empty())
+		{
+			if (std::cin.eof())
+				std::cout<<"\n";
+			freopen("/dev/tty", "r", stdin);
+			std::cin.clear();
+			goto fourth;
+		}
 	pb.contacts[number].setPhoneNumber(ptr);
-	std::cout<<"DarkestSecret: ";
-	std::cin>>ptr;
+	fifth:
+		std::cout<<"Darkest secret: ";
+		std::getline(std::cin, ptr);
+		if(ptr.empty())
+		{
+			if (std::cin.eof())
+				std::cout<<"\n";
+			freopen("/dev/tty", "r", stdin);
+			std::cin.clear();
+			goto fifth;
+		}
 	pb.contacts[number].setDarkestSecret(ptr);
 }
 
@@ -59,8 +101,20 @@ int main()
 
 
 	number = 0;
-	while(std::cout<<"input a command: " && std::cin>>input && input != "EXIT")
+	while(true)
 	{
+		runout:
+			std::cout<<"input a command: ";
+			std::getline(std::cin, input);
+			if(std::cin.eof())
+			{
+				freopen("/dev/tty", "r", stdin);
+				std::cout<<"\n";
+				std::cin.clear();
+				goto runout;
+			}
+		if (input == "EXIT")
+			break ;
 		if (input == "ADD")
 		{
 			if (number == 8)
@@ -76,13 +130,17 @@ int main()
 				print_contact(i, pb);
 				i++;
 			}
-			std::cout<<"Enter index: ";
-			std::cin>>ptr;
 			int index;
-			if (ptr.empty())
+			start:
+				std::cout<<"Enter index: ";
+				std::getline(std::cin, ptr);
+			if(ptr.empty())
 			{
-				std::cout << "No input provided\n";
-				continue;
+				if (std::cin.eof())
+					std::cout<<"\n";
+				freopen("/dev/tty", "r", stdin);
+				std::cin.clear();
+				goto start;
 			}
 			try
 			{
@@ -100,19 +158,23 @@ int main()
 			}
 			else
 			{
-				std::cout<<"Firstname: ";
+				std::cout<<"First name: ";
 				ptr = pb.contacts[index].getFirstName();
 				std::cout<<ptr;
 				std::cout<<"\n";
+				std::cout<<"Last name: ";
 				ptr = pb.contacts[index].getLastName();
 				std::cout<<ptr;
 				std::cout<<"\n";
+				std::cout<<"Nickname: ";
 				ptr = pb.contacts[index].getNickname();
 				std::cout<<ptr;
 				std::cout<<"\n";
+				std::cout<<"Phone number: ";
 				ptr = pb.contacts[index].getPhoneNumber();
 				std::cout<<ptr;
 				std::cout<<"\n";
+				std::cout<<"Darkest secret: ";
 				ptr = pb.contacts[index].getDarkestSecret();
 				std::cout<<ptr;
 				std::cout<<"\n";

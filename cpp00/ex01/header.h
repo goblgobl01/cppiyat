@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-#include <array>
 class Contact {
 	public :
 		void setFirstName(const std::string& fn) {
@@ -47,8 +46,8 @@ class Contact {
 
 class PhoneBook {
 	public:
-		// Contact contacts[8];
-		std::array<Contact,8> contacts;
+		print_contact()
+		Contact contacts[8];
 };
 
 #endif

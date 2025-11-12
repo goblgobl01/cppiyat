@@ -1,7 +1,7 @@
 NAME = phonebook
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC = main.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
