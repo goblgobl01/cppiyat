@@ -3,7 +3,7 @@
 
 void Zombie::announce(void)
 {
-	std::cout<<"%s: : BraiiiiiiinnnzzzZ..."<<name<<std::endl;
+	std::cout<<": BraiiiiiiinnnzzzZ..."<<name<<std::endl;
 }
 
 Zombie* newZombie(std::string name)
