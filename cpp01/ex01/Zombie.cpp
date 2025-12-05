@@ -19,7 +19,7 @@ Zombie:: ~Zombie() {
 	std::cout<<name<<": Zombie has been deconstructed"<<std::endl;
 }
 
-void Zombie::set_name(std::string nom)
+void Zombie::set_name(std::string _name)
 {
-	name = nom;
+	name = _name;
 }
