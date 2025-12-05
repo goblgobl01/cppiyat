@@ -1,14 +1,14 @@
-NAME = phonebook
+NAME = Zombies
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+SRC = $(wildcard *.cpp)
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(wildcard *.hpp)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 obj/%.o: %.cpp
