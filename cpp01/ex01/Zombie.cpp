@@ -1,6 +1,9 @@
 #include "Zombie.hpp"
 
-Zombie:: Zombie() {}
+Zombie:: Zombie()
+{
+	std::cout<<"Zombie has been constructed without a name"<<std::endl;
+}
 
 Zombie:: Zombie(std::string name) : name(name) 
 {
