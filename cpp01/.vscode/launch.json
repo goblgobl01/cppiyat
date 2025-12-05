@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug phonebook",
+            "name": "Debug zombie",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/ex01/phonebook",
+            "program": "${workspaceFolder}/ex01/Zombies01",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

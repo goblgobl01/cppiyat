@@ -1,7 +1,7 @@
-NAME = Zombies
+NAME = Zombies00
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:%.cpp=obj/%.o)
