@@ -3,12 +3,12 @@ NAME = program
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = $(wildcard *.cpp)
+SRC = main.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(wildcard *.hpp)
+$(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 obj/%.o: %.cpp

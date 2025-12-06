@@ -1,14 +1,14 @@
-NAME = Zombies01
+NAME = bob
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -O0 -g
 
-SRC = Zombie.cpp ZombieHorde.cpp main.cpp
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Zombie.hpp
+$(NAME): $(OBJ) Harl.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 obj/%.o: %.cpp

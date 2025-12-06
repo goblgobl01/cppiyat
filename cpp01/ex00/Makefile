@@ -3,12 +3,12 @@ NAME = Zombies00
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = $(wildcard *.cpp)
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(wildcard *.hpp)
+$(NAME): $(OBJ) Zombie.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 obj/%.o: %.cpp

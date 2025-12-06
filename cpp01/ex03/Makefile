@@ -1,14 +1,14 @@
-NAME = Zombies01
+NAME = mini_game
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = $(wildcard *.cpp)
+SRC = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(wildcard *.hpp)
+$(NAME): $(OBJ) HumanA.hpp HumanB.hpp Weapon.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 obj/%.o: %.cpp
