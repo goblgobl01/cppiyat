@@ -12,11 +12,11 @@ Fixed::Fixed(const Fixed &original)
 	integer = original.integer;
 }
 
-Fixed Fixed::operator=(const Fixed &obj)
+Fixed& Fixed::operator=(const Fixed &obj)
 {
 	std::cout<<"Copy assignment operator called"<<std::endl;
 	if (this == &obj)
-		return (obj);
+		return (*this);
 	integer = obj.integer;
 	return (*this);
 }
