@@ -5,7 +5,7 @@
             "name": "Debug phonebook",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/ex00/program",
+            "program": "${workspaceFolder}/ex02/program",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

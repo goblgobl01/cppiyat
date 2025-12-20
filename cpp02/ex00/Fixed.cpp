@@ -9,7 +9,7 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed &original)
 {
 	std::cout<<"Copy constructor called"<<std::endl;
-	integer = original.integer;
+	*this = original;
 }
 
 Fixed& Fixed::operator=(const Fixed &obj)
