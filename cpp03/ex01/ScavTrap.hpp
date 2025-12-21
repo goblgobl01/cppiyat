@@ -5,11 +5,6 @@
 #include <iostream>
 #include <string>
 class ScavTrap : public ClapTrap {
-	private :
-		std::string	name;
-		int			HitPoint;
-		int			EnergyPoint;
-		int			AttackDamage;
 	public :
 		ScavTrap();
 		ScavTrap(std::string _name);
