@@ -1,9 +1,9 @@
 NAME = program
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-obj/%.o: %.cpp Cat.hpp Dog.hpp Animal.hpp
+obj/%.o: %.cpp Cat.hpp Dog.hpp Animal.hpp Brain.hpp
 	mkdir -p obj
 	$(CC) $(CFLAGS) -c $< -o $@
 

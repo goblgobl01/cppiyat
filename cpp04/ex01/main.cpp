@@ -6,28 +6,33 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	std::cout << "============== without using the virual keyword =============" << std::endl;
-	const WrongAnimal* Wrong_meta = new WrongAnimal();
-	const WrongAnimal* Wrong_i = new WrongCat();
-	std::cout << Wrong_i->getType() << " " << std::endl;
-	Wrong_i->makeSound();
-	Wrong_meta->makeSound();
-	std::cout << "============== allocating on the stack =============" << std::endl;
-	Animal animal = Animal();
-	Animal dog = Dog();
-	Animal cat = Cat();
-	std::cout << dog.getType() << " " << std::endl;
-	std::cout << cat.getType() << " " << std::endl;
-	cat.makeSound();
-	dog.makeSound();
-	animal.makeSound();
+	const int numAnimals = 4;
+	Animal* animals[numAnimals];
+
+	std::cout << "--- CREATING ANIMALS ---" << std::endl;
+	for (int i = 0; i < numAnimals; i++) {
+		if (i < numAnimals / 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+		std::cout << "--- animal created ---" << i << std::endl;
+	}
+	{
+		std::cout << "\n--- TESTING DEEP COPY ---" << std::endl;
+		Dog basic;
+		basic.setIdea("idea 0", 0);
+		Dog tmp = basic;
+		std::cout<< "tmp idea number 0 " << tmp.getIdea(0) << std::endl;
+		std::cout<< "basic idea number 0 " << basic.getIdea(0) << std::endl;
+		basic.setIdea("idea 1", 0);
+		std::cout<< "=============================" << std::endl;
+		std::cout<< "tmp idea number 0 " << tmp.getIdea(0) << std::endl;
+		std::cout<< "basic idea number 0 " << basic.getIdea(0) << std::endl;
+	}
+	std::cout << "\n--- DELETING ANIMALS ---" << std::endl;
+	for (int i = 0; i < numAnimals; i++) {
+		delete animals[i];
+		std::cout << "--- animal deleted ---" << i << std::endl;
+	}
 	return 0;
 }
