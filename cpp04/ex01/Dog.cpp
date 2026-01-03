@@ -10,15 +10,18 @@ Dog::Dog(): Animal()
 Dog::Dog(const Dog &original): Animal(original)
 {
 	std::cout<<"Dog Copy constructor called"<<std::endl;
-	*this = original;
+	this->dog_brain = new Brain(*(original.dog_brain));
 }
 
 Dog &Dog::operator=(const Dog &obj)
 {
 	std::cout<<"Dog Copy assignment operator called"<<std::endl;
 	if (this != &obj)
+	{
 		Animal::operator=(obj);
-	this->dog_brain = new Brain(*(obj.dog_brain));
+		delete(this->dog_brain);
+		this->dog_brain = new Brain(*(obj.dog_brain));
+	}
 	return (*this);
 }
 

@@ -10,15 +10,18 @@ Cat::Cat(): Animal()
 Cat::Cat(const Cat &original): Animal(original)
 {
 	std::cout<<"Cat Copy constructor called"<<std::endl;
-	*this = original;
+	this->cat_brain = new Brain(*(original.cat_brain));
 }
 
 Cat &Cat::operator=(const Cat &obj)
 {
 	std::cout<<"Cat Copy assignment operator called"<<std::endl;
 	if (this != &obj)
+	{
 		Animal::operator=(obj);
-	this->cat_brain = new Brain(*(obj.cat_brain));
+		delete (this->cat_brain);
+		this->cat_brain = new Brain(*(obj.cat_brain));
+	}
 	return (*this);
 }
 

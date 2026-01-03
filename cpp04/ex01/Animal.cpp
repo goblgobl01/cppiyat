@@ -9,7 +9,7 @@ Animal::Animal()
 Animal::Animal(const Animal &original)
 {
 	std::cout<<"Animal Copy constructor called"<<std::endl;
-	*this = original;
+	type = original.type;
 }
 
 Animal &Animal::operator=(const Animal &obj)
