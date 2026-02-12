@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-obj/%.o: %.cpp Cat.hpp Dog.hpp Animal.hpp
+obj/%.o: %.cpp Bureaucrat.hpp
 	mkdir -p obj
 	$(CC) $(CFLAGS) -c $< -o $@
 
