@@ -1,8 +1,10 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-Form::Form(): name("default"), grade_s(100), grade_e(100), sign(false) {}
 
-Form::Form(std::string _name, int _grade_s, int _grade_e): name(_name), grade_e(_grade_e), grade_s(_grade_s), sign(false)
+Form::Form(): name("default"), sign(false), grade_s(100), grade_e(100) {}
+
+Form::Form(std::string _name, int _grade_s, int _grade_e): name(_name), sign(false), grade_s(_grade_s), grade_e(_grade_e)
 {
 	if (grade_s < 1)
 		throw Form::GradeTooHighException();
@@ -14,7 +16,7 @@ Form::Form(std::string _name, int _grade_s, int _grade_e): name(_name), grade_e(
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form &cp): name(cp.name), grade_e(cp.grade_e), grade_s(cp.grade_s), sign(cp.sign){}
+Form::Form(const Form &cp): name(cp.name), sign(cp.sign), grade_s(cp.grade_s), grade_e(cp.grade_e) {}
 
 Form &Form::operator=(const Form &obj)
 {
@@ -44,27 +46,14 @@ bool Form::getSign() const
 	return (this->sign);
 }
 
-// void Form::increment()
-// {
-// 	if ((this->grade - 1) < 1)
-// 		throw Form::GradeTooHighException();
-// 	this->grade--;
-// }
-
-// void Form::decrement()
-// {
-// 	if ((this->grade + 1) > 150)
-// 		throw Form::GradeTooLowException();
-// 	this->grade++;
-// }
-
 void Form::beSigned(const Bureaucrat &obj)
 {
-	if (this->sign = false)
+	if (this->sign == false)
 	{
-		if (obj.getGrade() <= grade_s)
-			throw Form::GradeTooLowException();
+		if (obj.getGrade() > grade_s)
+			throw Form::GradeTooHighException();
 		this->sign = true;
+		std::cout << obj.getName() << " signed " << this->name << std::endl;
 	}
 }
 
