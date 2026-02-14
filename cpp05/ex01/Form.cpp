@@ -53,7 +53,6 @@ void Form::beSigned(const Bureaucrat &obj)
 		if (obj.getGrade() > grade_s)
 			throw Form::GradeTooHighException();
 		this->sign = true;
-		std::cout << obj.getName() << " signed " << this->name << std::endl;
 	}
 }
 
