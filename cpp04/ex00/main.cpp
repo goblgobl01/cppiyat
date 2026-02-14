@@ -17,7 +17,7 @@ int main()
 	delete(i);
 	delete(j);
 	delete(meta);
-	std::cout << "============== without using the virual keyword =============" << std::endl;
+	std::cout << "============== without using the virtual keyword =============" << std::endl;
 	const WrongAnimal* Wrong_meta = new WrongAnimal();
 	const WrongAnimal* Wrong_i = new WrongCat();
 	std::cout << Wrong_i->getType() << " " << std::endl;

@@ -38,10 +38,16 @@ void Cat::makeSound() const
 
 void Cat::setIdea(const std::string& idea, int idx)
 {
-	cat_brain->ideas[idx] = idea;
+	if (idx >= 0 && idx < 100)
+		cat_brain->ideas[idx] = idea;
+	else
+		std::cout << "Error\n" << std::endl;
 }
 
 std::string Cat::getIdea(int idx) const
 {
-	return cat_brain->ideas[idx];
+	if (idx >= 0 && idx < 100)
+		return cat_brain->ideas[idx];
+	else
+		return ("Error\n");
 }

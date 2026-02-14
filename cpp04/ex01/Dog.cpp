@@ -38,10 +38,16 @@ void Dog::makeSound() const
 
 void Dog::setIdea(const std::string& idea, int idx)
 {
-	dog_brain->ideas[idx] = idea;
+	if (idx >= 0 && idx < 100)
+		dog_brain->ideas[idx] = idea;
+	else
+		std::cout << "Error\n" << std::endl;
 }
 
 std::string Dog::getIdea(int idx) const
 {
-	return dog_brain->ideas[idx];
+	if (idx >= 0 && idx < 100)
+		return dog_brain->ideas[idx];
+	else
+		return ("Error\n");
 }

@@ -1,7 +1,7 @@
 NAME = program
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-pedantic-errors
 
 SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
