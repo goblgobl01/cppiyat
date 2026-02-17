@@ -14,7 +14,16 @@ int main()
 	PresidentialPardonForm a("1");
 	ShrubberyCreationForm b("2");
 	RobotomyRequestForm c("3");
-	// /*         AForm tests                     */
+	/*         signing forms tests             */
+	crook.signAForm(a);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.signAForm(a);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.signAForm(b);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.signAForm(c);
+	std::cout << "=======================\n=======================" << std::endl;
+	/*         AForm tests                     */
 	boss.executeForm(a);
 	std::cout << "=======================\n=======================" << std::endl;
 	boss.executeForm(b);

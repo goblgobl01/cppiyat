@@ -58,7 +58,7 @@ void AForm::beSigned(const Bureaucrat &obj)
 
 void AForm::execute(Bureaucrat const & bureaucrat) const
 {
-	if (this->sign == true)
+	if (this->sign == false)
 		throw AForm::AFormNotSignedException();
 	if (bureaucrat.getGrade() > this->grade_e)
 		throw AForm::GradeTooHighException();
@@ -74,7 +74,7 @@ const char* AForm::GradeTooLowException::what() const throw() {
 }
 
 const char* AForm::AFormNotSignedException::what() const throw() {
-	return "AForm grade is too low (above 150)!";
+	return "AForm is not signed!";
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj)
