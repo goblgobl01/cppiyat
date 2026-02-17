@@ -30,7 +30,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::performAction() const
 {
-	std::ofstream ofs(target + "_shrubbery");
+	std::string filename = target + "_shrubbery";
+	std::ofstream ofs(filename.c_str());
 	if (!ofs)
 	{
 		std::cerr << "Error: Could not open file " << target + "_shrubbery" << std::endl;
