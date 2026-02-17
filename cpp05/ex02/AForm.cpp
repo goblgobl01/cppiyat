@@ -60,9 +60,9 @@ void AForm::execute(Bureaucrat const & bureaucrat) const
 {
 	if (this->sign == true)
 		throw AForm::AFormNotSignedException();
-	if (bureaucrat.getGrade() > grade_s)
+	if (bureaucrat.getGrade() > this->grade_e)
 		throw AForm::GradeTooHighException();
-	this->
+	this->performAction();
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {
