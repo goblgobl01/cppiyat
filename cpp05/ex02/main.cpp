@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main()
 {
@@ -8,14 +8,14 @@ int main()
 	/*         constructor tests               */
 	Bureaucrat boss("bossy", 1);
 	Bureaucrat crook("crooky", 150);
-	Form a;
-	Form b("sma9lo", 1, 1);
-	Form d("sma9lo", 150, 150);
-	Form e("sma9loo", 1, 1);
-	Form f("sma9loo", 150, 150);
+	AForm a;
+	AForm b("sma9lo", 1, 1);
+	AForm d("sma9lo", 150, 150);
+	AForm e("sma9loo", 1, 1);
+	AForm f("sma9loo", 150, 150);
 	try
 	{
-		Form c("sma9lo", 200, 200);
+		AForm c("sma9lo", 200, 200);
 	}
 	catch (std::exception &e)
 	{
@@ -23,15 +23,15 @@ int main()
 	}
 	try
 	{
-		Form e("spopo", 0, 0);
+		AForm e("spopo", 0, 0);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	/*         Form tests                     */
-	boss.signForm(b);
-	boss.signForm(d);
-	crook.signForm(e);
-	crook.signForm(f);
+	/*         AForm tests                     */
+	boss.signAForm(b);
+	boss.signAForm(d);
+	crook.signAForm(e);
+	crook.signAForm(f);
 }
