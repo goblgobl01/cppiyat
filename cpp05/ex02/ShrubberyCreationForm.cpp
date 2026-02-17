@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Presidential_Form", 145, 13)
 {
@@ -29,5 +30,20 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::performAction() const
 {
-	
+	std::ofstream ofs(target + "_shrubbery");
+	if (!ofs)
+	{
+		std::cerr << "Error: Could not open file " << target + "_shrubbery" << std::endl;
+		return;
+	}
+	ofs << "       _-_" << std::endl;
+	ofs << "    /~~   ~~\\" << std::endl;
+	ofs << " /~~         ~~\\" << std::endl;
+	ofs << "{               }" << std::endl;
+	ofs << " \\  _-     -_  /" << std::endl;
+	ofs << "   ~  \\\\ //  ~" << std::endl;
+	ofs << "_- -   | | _- _" << std::endl;
+	ofs << "  _ -  | |   -_" << std::endl;
+	ofs << "      // \\\\" << std::endl;
+	ofs.close();
 }

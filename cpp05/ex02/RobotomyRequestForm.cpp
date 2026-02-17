@@ -29,5 +29,9 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::performAction() const
 {
-	
+	std::cout << "*drilling noises*" << std::endl;
+	if (std::rand() % 2)
+		std::cout << target << " has been robotomized successfully." << std::endl;
+	else
+		std::cout << "The robotomy failed on " << target << "." << std::endl;
 }
