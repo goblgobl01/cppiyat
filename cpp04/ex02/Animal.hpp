@@ -10,7 +10,7 @@ class Animal {
 		Animal();
 		Animal(const Animal &original);
 		Animal &operator=(const Animal &obj);
-		~Animal();
+		virtual ~Animal();
 		virtual void makeSound() const = 0;
 		const std::string &getType() const;
 };
