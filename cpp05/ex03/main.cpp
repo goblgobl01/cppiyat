@@ -1,0 +1,42 @@
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
+int main()
+{
+	// std::cout << std::bad_alloc().what() << std::endl;
+	// std::cout << Bureaucrat::GradeTooHighException().what() << std::endl;
+	/*         constructor tests               */
+	Bureaucrat boss("bossy", 1);
+	Bureaucrat crook("crooky", 150);
+	AForm *a = new PresidentialPardonForm("1");
+	AForm *b = new ShrubberyCreationForm ("2");
+	AForm *c = new RobotomyRequestForm("3");
+	/*         signing forms tests             */
+	crook.signAForm(*a);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.signAForm(*a);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.signAForm(*b);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.signAForm(*c);
+	std::cout << "=======================\n=======================" << std::endl;
+	/*         AForm tests                     */
+	boss.executeForm(*a);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.executeForm(*b);
+	std::cout << "=======================\n=======================" << std::endl;
+	boss.executeForm(*c); 
+	std::cout << "=======================\n=======================" << std::endl;
+	crook.executeForm(*a);
+	std::cout << "=======================\n=======================" << std::endl;
+	crook.executeForm(*b);
+	std::cout << "=======================\n=======================" << std::endl;
+	crook.executeForm(*c);
+
+	delete a;
+	delete b;
+	delete c;
+}
