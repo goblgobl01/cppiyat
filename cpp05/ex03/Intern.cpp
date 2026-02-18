@@ -2,12 +2,14 @@
 
 Intern::Intern() {}
 
-Intern::Intern() {}
-
-Intern::Intern(const Intern &cp) {}
+Intern::Intern(const Intern &cp) 
+{
+	(void) cp;
+}
 
 Intern &Intern::operator=(const Intern &obj)
 {
+	(void) obj;
 	return (*this);
 }
 
@@ -21,7 +23,7 @@ AForm *Intern::makeForm(std::string form_name, std::string _target)
 {
 	int pos;
 	AForm *(Intern::*methods[])(std::string) = {&Intern::makePresidential, &Intern::makeRobotomy, &Intern::makeShrubbery};
-	std::string levels[3] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
+	std::string levels[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 	pos = 0;
 	while (form_name != levels[pos] && pos < 3)
 		pos++;

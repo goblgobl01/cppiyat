@@ -9,7 +9,6 @@
 class Intern {
 	public :
 		Intern();
-		Intern(std::string _target);
 		Intern(const Intern &cp);
 		Intern &operator=(const Intern &obj);
 		~Intern();
