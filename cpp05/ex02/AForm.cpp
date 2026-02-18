@@ -51,7 +51,7 @@ void AForm::beSigned(const Bureaucrat &obj)
 	if (this->sign == false)
 	{
 		if (obj.getGrade() > grade_s)
-			throw AForm::GradeTooHighException();
+			throw AForm::GradeTooLowException();
 		this->sign = true;
 	}
 }
@@ -61,7 +61,7 @@ void AForm::execute(Bureaucrat const & bureaucrat) const
 	if (this->sign == false)
 		throw AForm::AFormNotSignedException();
 	if (bureaucrat.getGrade() > this->grade_e)
-		throw AForm::GradeTooHighException();
+		throw AForm::GradeTooLowException();
 	this->performAction();
 }
 

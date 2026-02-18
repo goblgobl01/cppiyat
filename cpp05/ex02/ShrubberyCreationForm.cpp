@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Shrubbery Form", 145, 13)
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Shrubbery Form", 145, 137)
 {
 	target = "default";
 }

@@ -51,7 +51,7 @@ void AForm::beSigned(const Bureaucrat &obj)
 	if (this->sign == false)
 	{
 		if (obj.getGrade() > grade_s)
-			throw AForm::GradeTooHighException();
+			throw AForm::GradeTooLowException();
 		this->sign = true;
 	}
 }

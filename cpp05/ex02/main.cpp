@@ -11,28 +11,32 @@ int main()
 	/*         constructor tests               */
 	Bureaucrat boss("bossy", 1);
 	Bureaucrat crook("crooky", 150);
-	PresidentialPardonForm a("1");
-	ShrubberyCreationForm b("2");
-	RobotomyRequestForm c("3");
+	AForm *a = new PresidentialPardonForm("1");
+	AForm *b = new ShrubberyCreationForm ("2");
+	AForm *c = new RobotomyRequestForm("3");
 	/*         signing forms tests             */
-	crook.signAForm(a);
+	crook.signAForm(*a);
 	std::cout << "=======================\n=======================" << std::endl;
-	boss.signAForm(a);
+	boss.signAForm(*a);
 	std::cout << "=======================\n=======================" << std::endl;
-	boss.signAForm(b);
+	boss.signAForm(*b);
 	std::cout << "=======================\n=======================" << std::endl;
-	boss.signAForm(c);
+	boss.signAForm(*c);
 	std::cout << "=======================\n=======================" << std::endl;
 	/*         AForm tests                     */
-	boss.executeForm(a);
+	boss.executeForm(*a);
 	std::cout << "=======================\n=======================" << std::endl;
-	boss.executeForm(b);
+	boss.executeForm(*b);
 	std::cout << "=======================\n=======================" << std::endl;
-	boss.executeForm(c);
+	boss.executeForm(*c); 
 	std::cout << "=======================\n=======================" << std::endl;
-	crook.executeForm(a);
+	crook.executeForm(*a);
 	std::cout << "=======================\n=======================" << std::endl;
-	crook.executeForm(b);
+	crook.executeForm(*b);
 	std::cout << "=======================\n=======================" << std::endl;
-	crook.executeForm(c);
+	crook.executeForm(*c);
+
+	delete a;
+	delete b;
+	delete c;
 }
