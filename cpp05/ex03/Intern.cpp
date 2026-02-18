@@ -22,7 +22,7 @@ AForm* Intern::makeShrubbery(std::string target) { return new ShrubberyCreationF
 AForm *Intern::makeForm(std::string form_name, std::string _target)
 {
 	int pos;
-	AForm *(Intern::*methods[])(std::string) = {&Intern::makePresidential, &Intern::makeRobotomy, &Intern::makeShrubbery};
+	AForm *(Intern:: *methods[])(std::string target) = {&Intern::makePresidential, &Intern::makeRobotomy, &Intern::makeShrubbery};
 	std::string levels[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 	pos = 0;
 	while (form_name != levels[pos] && pos < 3)
